@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"github.com/forum/handlers"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -17,6 +18,7 @@ type WebRouters []WebRouter
 
 // 定义所有web路由
 var webRouters = WebRouters{
+	{	"home", "GEt", "/", handlers.Index},
 
 }
 

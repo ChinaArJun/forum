@@ -2,4 +2,7 @@ module github.com/forum
 
 go 1.14
 
-require github.com/ChinaArJun/Gologger v0.0.0-20200402054141-798e716135f7 // indirect
+require (
+	github.com/go-sql-driver/mysql v1.5.0
+	github.com/gorilla/mux v1.7.4
+)
