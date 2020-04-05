@@ -18,7 +18,43 @@ type WebRouters []WebRouter
 
 // 定义所有web路由
 var webRouters = WebRouters{
-	{	"home", "GEt", "/", handlers.Index},
+	{
+		"home",
+		"GET",
+		"/",
+		handlers.Index,
+	},
+	 // 其他路由
+	{
+		"signup",
+		"GET",
+		"/signup",
+		handlers.Signup,
+	},
+	{
+		"signupAccount",
+		"POST",
+		"/signup_account",
+		handlers.SignupAccount,
+	},
+	{
+		"login",
+		"GET",
+		"/login",
+		handlers.Login,
+	},
+	{
+		"auth",
+		"POST",
+		"/authenticate",
+		handlers.Authenticate,
+	},
+	{
+		"logout",
+		"GET",
+		"/logout",
+		handlers.Logout,
+	},
 
 }
 
