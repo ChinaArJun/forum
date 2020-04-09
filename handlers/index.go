@@ -8,15 +8,17 @@ import (
 
 // 论坛首页路由处理器方法
 func Index(w http.ResponseWriter, r *http.Request) {
-	threads, err := models.Threads();
+	threads, err := models.Threads()
 	if err == nil {
 		GenerateHTML(w, threads, "layout", "navbar", "index")
-		//_, err := Session(w, r)
-		//if err != nil {
-		//	GenerateHTML(w, threads, "layout", "navbar", "index")
-		//} else {
-		//	GenerateHTML(w, threads, "layout", "auth.navbar", "index")
-		//}
+		_, err := Session(w, r)
+		if err != nil {
+			GenerateHTML(w, threads, "layout", "navbar", "index")
+		} else {
+			GenerateHTML(w, threads, "layout", "auth.navbar", "index")
+		}
+	} else {
+		GenerateHTML(w, threads, "layout", "navbar", "index")
 	}
 
 	//files := []string{"views/layout.html", "views/navbar.html", "views/index.html",}
