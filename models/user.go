@@ -149,7 +149,6 @@ func (user *User) CreateThread(topic string) (conv Thread, err error) {
 	if err != nil {
 		return
 	}
-	defer stmtout.Close()
 
 	// use QueryRow to return a row and scan the returned id into the Session struct
 	err = stmtout.QueryRow(uuid).Scan(&conv.Id, &conv.Uuid, &conv.Topic, &conv.UserId, &conv.CreatedAt)

@@ -12,8 +12,8 @@ type Session struct {
 
 // Check if session is valid in the database
 func (session *Session) Check() (valid bool, err error) {
-	err = Db.QueryRow("SELECT id, uuid, email, user_id, created_at FROM sessions WHERE uuid = ?", session.Uuid).
-		Scan(&session.Id, &session.Uuid, &session.Email, &session.UserId, &session.CreatedAt)
+	err = Db.QueryRow("SELECT id, uuid, email, user_id FROM sessions WHERE uuid = ?", session.Uuid).
+		Scan(&session.Id, &session.Uuid, &session.Email, &session.UserId)
 	if err != nil {
 		valid = false
 		return
